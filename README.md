@@ -4,7 +4,7 @@
 
 ### A full-stack CRUD application built with Node.js, Express, EJS, and MongoDB
 
-This project is a curated database of wines and their ideal food pairings.
+This app will allow you to collect your favorite wines with associated tasting notes and food pairings.
 
 #### By Landon Leadford
 

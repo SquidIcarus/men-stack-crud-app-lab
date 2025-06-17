@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Wine</title>
+</head>
+
+<body>
+    <h1>Import your wine!</h1>
+    <form action="/wines" method="POST">
+        <label for="vineYard">Vineyard:</label>
+        <input type="text" name="vineYard" id="vineYard" />
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
+        <label for="type">Type:</label>
+        <input type="text" name="type" id="type" />
+        <label for="region">Region:</label>
+        <input type="text" name="region" id="region" />
+        <label for="country">Country:</label>
+        <input type="text" name="country" id="country" />
+        <label for="year">Year:</label>
+        <input type="number" name="year" id="year" />
+        <label for="tastingNotes">Tasting Notes:</label>
+        <input type="text" name="tastingNotes" id="tastingNotes" />
+        <label for="foodPairings">Food Pairings:</label>
+        <input type="text" name="foodPairings" id="foodPairings" />
+
+        <button type="submit">Add Wine</button>
+    </form>
+</body>
+
+</html>
