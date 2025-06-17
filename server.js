@@ -17,6 +17,15 @@ app.use(express.urlencoded({ extended: false })); //middleware, makes the form d
 
 //GET
 
+app.get('/', async (req, res) => {
+    res.render('index.ejs');
+});
+
+app.get("/wines", async (req, res) => {
+    const allWines = await Wine.find();
+        res.render("wines/index.ejs", { wines: allWines });
+});
+
 app.get('/wines/new', (req, res) => {
     res.render('wines/new.ejs');
 });
@@ -46,9 +55,4 @@ app.post("/wines", async (req, res) => {
 
 app.listen(3000, () => {
     console.log('I hear you port 3000')
-});
-
-//Get /
-app.get('/', async (req, res) => {
-    res.render('index.ejs');
 });

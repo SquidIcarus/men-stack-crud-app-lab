@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wine Index</title>
+</head>
+
+<body>
+    <h1>Your Cellar</h1>
+    <ul>
+        <% wines.forEach(wine=> { %>
+            <li>
+                <%= wine.vineYard %>, <%= wine.name %>
+            </li>
+            <% }); %>
+    </ul>
+</body>
+
+</html>
