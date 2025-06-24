@@ -12,10 +12,14 @@
     <ul>
         <% wines.forEach(wine=> { %>
             <li>
-                <%= wine.vineYard %>, <%= wine.name %>
+                <a href="/wines/<%= wine._id %>">
+                    <%= wine.vineYard %>, <%= wine.name %>
+                </a>
             </li>
             <% }); %>
     </ul>
+    <a href="/">Home</a>
+    <a href="/wines/new/">Add Wine to your Collection</a>
 </body>
 
 </html>

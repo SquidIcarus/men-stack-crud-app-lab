@@ -23,11 +23,16 @@ app.get('/', async (req, res) => {
 
 app.get("/wines", async (req, res) => {
     const allWines = await Wine.find();
-        res.render("wines/index.ejs", { wines: allWines });
+    res.render("wines/index.ejs", { wines: allWines });
 });
 
 app.get('/wines/new', (req, res) => {
     res.render('wines/new.ejs');
+});
+
+app.get('/wines/:wineId', async (req, res) => {
+    const foundWine = await Wine.findById(req.params.wineId);
+    res.render("wines/show.ejs", { wine: foundWine });
 });
 
 // POST
@@ -45,8 +50,8 @@ app.post("/wines", async (req, res) => {
             foodPairings: req.body.foodPairings
         });
 
-   await Wine.create(req.body);
-  res.redirect("/wines/new");
+        await Wine.create(req.body);
+        res.redirect("/wines/new");
     } catch (err) {
         console.error("Error saving wine", err);
         res.status(500).send("Error saving wine to database");

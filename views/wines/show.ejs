@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        <%= wine.name %>
+    </title>
+</head>
+
+<body>
+    <h1>
+        <%= wine.name %>
+    </h1>
+    <h2>
+        <%= wine.vineYard %> Vineyard, <%= wine.region %>
+    </h2>
+    <h2>
+        <%= wine.country %>
+    </h2>
+    <h3>
+        <%= wine.year %>
+    </h3>
+    <h4>Tasting Notes:</h4>
+    <p>
+        <%= wine.tastingNotes %>
+    </p>
+    <h4>Food Pairings:</h4>
+    <p>
+        <%= wine.foodPairings %>
+    </p>
+    <a href="/wines/">Back to Cellar</a>
+</body>
+
+</html>
