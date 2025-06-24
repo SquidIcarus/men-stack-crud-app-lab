@@ -2,8 +2,11 @@ const dotenv = require('dotenv');
 dotenv.config();
 const express = require('express');
 const mongoose = require('mongoose');
+const methodOverride = require("method-override");
+const morgan = require("morgan");
 
 const app = express();
+
 
 mongoose.connect(process.env.MONGODB_URI);
 
@@ -11,9 +14,11 @@ mongoose.connection.on('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`)
 });
 
-const Wine = require('./models/wine.js'); //imports the wine model
+const Wine = require('./models/wine.js'); 
 
-app.use(express.urlencoded({ extended: false })); //middleware, makes the form data easily accessible within the route handlers
+app.use(express.urlencoded({ extended: false }));
+app.use(methodOverride("_method"));
+app.use(morgan("dev")); 
 
 //GET
 
@@ -33,6 +38,11 @@ app.get('/wines/new', (req, res) => {
 app.get('/wines/:wineId', async (req, res) => {
     const foundWine = await Wine.findById(req.params.wineId);
     res.render("wines/show.ejs", { wine: foundWine });
+});
+
+app.delete("/wines/:wineId", async (req, res) => {
+    await Wine.findByIdAndDelete(req.params.wineId);
+    res.redirect("/wines");
 });
 
 // POST

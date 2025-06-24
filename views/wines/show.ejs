@@ -30,6 +30,10 @@
     <p>
         <%= wine.foodPairings %>
     </p>
+    <form action="/wines/<%= wine._id %>?_method=DELETE" METHOD="POST">
+        <button type="submit">Delete <%= wine.name %></button>
+    </form>
+    <br>
     <a href="/wines/">Back to Cellar</a>
 </body>
 
