@@ -14,11 +14,11 @@ mongoose.connection.on('connected', () => {
     console.log(`Connected to MongoDB ${mongoose.connection.name}.`)
 });
 
-const Wine = require('./models/wine.js'); 
+const Wine = require('./models/wine.js');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride("_method"));
-app.use(morgan("dev")); 
+app.use(morgan("dev"));
 
 //GET
 
@@ -40,10 +40,19 @@ app.get('/wines/:wineId', async (req, res) => {
     res.render("wines/show.ejs", { wine: foundWine });
 });
 
+app.get("/wines/:wineId/edit", async (req, res) => {
+    const foundWine = await Wine.findById(req.params.wineId);
+    res.render("wines/edit.ejs", {
+        wine: foundWine,
+    });
+});
+
 app.delete("/wines/:wineId", async (req, res) => {
     await Wine.findByIdAndDelete(req.params.wineId);
     res.redirect("/wines");
 });
+
+
 
 // POST
 
@@ -66,6 +75,13 @@ app.post("/wines", async (req, res) => {
         console.error("Error saving wine", err);
         res.status(500).send("Error saving wine to database");
     }
+});
+
+// PUT
+
+app.put("/wines/:wineId", async (req, res) => {
+    await Wine.findByIdAndUpdate(req.params.wineId, req.body);
+    res.redirect(`/wines/${req.params.wineId}`);
 });
 
 app.listen(3000, () => {

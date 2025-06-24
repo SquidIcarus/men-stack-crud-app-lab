@@ -16,6 +16,9 @@
     <h2>
         <%= wine.vineYard %> Vineyard, <%= wine.region %>
     </h2>
+    <h3>
+        <%= wine.type %>
+    </h3>
     <h2>
         <%= wine.country %>
     </h2>
@@ -34,6 +37,7 @@
         <button type="submit">Delete <%= wine.name %></button>
     </form>
     <br>
+    <a href="/wines/<%= wine._id %>/edit">Edit <%= wine.name %></a>
     <a href="/wines/">Back to Cellar</a>
 </body>
 

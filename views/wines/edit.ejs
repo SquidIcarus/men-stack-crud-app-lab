@@ -1,0 +1,25 @@
+<body>
+    <h1>Edit <%= wine.name %>
+    </h1>
+    <form action="/wines/<%= wine._id %>?_method=PUT" method="POST">
+        <label for="vineYard">Vineyard:</label>
+        <input type="text" name="vineYard" id="vineYard" />
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" />
+        <label for="type">Type:</label>
+        <input type="text" name="type" id="type" />
+        <label for="region">Region:</label>
+        <input type="text" name="region" id="region" />
+        <label for="country">Country:</label>
+        <input type="text" name="country" id="country" />
+        <label for="year">Year:</label>
+        <input type="number" name="year" id="year" />
+        <label for="tastingNotes">Tasting Notes:</label>
+        <input type="text" name="tastingNotes" id="tastingNotes" />
+        <label for="foodPairings">Food Pairings:</label>
+        <input type="text" name="foodPairings" id="foodPairings" />
+
+        <button type="submit">Update Wine</button>
+    </form>
+    <a href="/wines">Back to Wines</a>
+</body>
