@@ -20,15 +20,5 @@ This app will allow you to collect your favorite wines with associated tasting n
 * **Backend:**: Node.js + Express
 * **Database:** MongoDB 
 
-## Setup/Installation Requirements
-
-*
-*
-
-## Known Bugs
-
-* _Any known issues_
-* _should go here_
-
 ## License
 [Copyright © 2025 Landon Leadford](LICENSE)
